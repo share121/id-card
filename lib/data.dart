@@ -92,11 +92,25 @@ class Controller extends GetxController {
     if (!addrCode.contains(addr)) return false;
     final year = a[6] * 1000 + a[7] * 100 + a[8] * 10 + a[9];
     var yearNow = DateTime.now().year;
-    if (year > yearNow || year < yearNow - 100) return false;
+    if (year > yearNow || year < yearNow - 150) return false;
     final month = a[10] * 10 + a[11];
     if (month < 1 || month > 12) return false;
     final day = a[12] * 10 + a[13];
-    if (day < 1 || day > 31) return false;
+    final maxDay = [
+      31,
+      year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? 29 : 28,
+      31,
+      30,
+      31,
+      30,
+      31,
+      31,
+      30,
+      31,
+      30,
+      31
+    ];
+    if (day < 1 || day > maxDay[month]) return false;
     if (!needCompute) return true;
     const W = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];
     var sum = 0;
