@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
         title: '计算身份证',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: accent.accent),
-          fontFamily: 'MiSans',
         ),
         darkTheme: ThemeData(
           brightness: Brightness.dark,
@@ -51,7 +50,6 @@ class MyApp extends StatelessWidget {
             seedColor: accent.accent,
             brightness: Brightness.dark,
           ),
-          fontFamily: 'MiSans',
         ),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
