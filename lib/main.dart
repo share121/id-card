@@ -180,6 +180,11 @@ class MyHomePage extends GetView<Controller> {
                 onPressed: () {
                   Clipboard.setData(
                       ClipboardData(text: controller.list.join('\n')));
+                  Get.rawSnackbar(
+                    title: '复制成功',
+                    message: '共 ${controller.list.length} 个身份证',
+                    animationDuration: 500.ms,
+                  );
                 },
                 child: const Text('复制全部'),
               )
