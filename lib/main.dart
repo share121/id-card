@@ -77,7 +77,6 @@ class MyHomePage extends GetView<Controller> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: isDesktop
             ? const DragToMoveArea(child: Text('计算身份证'))
             : const Text('计算身份证'),
@@ -93,6 +92,7 @@ class MyHomePage extends GetView<Controller> {
             },
             child: const Text('Github'),
           ),
+          const SizedBox(width: 8),
           if (isDesktop) const WindowButtons(),
         ],
         elevation: 8,
