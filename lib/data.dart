@@ -110,7 +110,7 @@ class Controller extends GetxController {
       30,
       31
     ];
-    if (day < 1 || day > maxDay[month]) return false;
+    if (day < 1 || day > maxDay[month - 1]) return false;
     if (!needCompute) return true;
     const W = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];
     var sum = 0;
