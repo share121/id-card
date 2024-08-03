@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:system_theme/system_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'data.dart';
 import 'widget/window_buttons.dart';
@@ -82,7 +83,18 @@ class MyHomePage extends GetView<Controller> {
             : const Text('计算身份证'),
         flexibleSpace:
             isDesktop ? const DragToMoveArea(child: SizedBox.expand()) : null,
-        actions: isDesktop ? const [WindowButtons()] : null,
+        actions: [
+          TextButton(
+            onPressed: () {
+              launchUrl(
+                Uri.parse('https://github.com/share121/id-card'),
+                mode: LaunchMode.externalApplication,
+              );
+            },
+            child: const Text('Github'),
+          ),
+          if (isDesktop) const WindowButtons(),
+        ],
         elevation: 8,
       ),
       body: SafeArea(
