@@ -85,10 +85,7 @@ class MyHomePage extends GetView<Controller> {
         actions: [
           TextButton(
             onPressed: () {
-              launchUrl(
-                Uri.parse('https://github.com/share121/id-card'),
-                mode: LaunchMode.externalApplication,
-              );
+              launchUrl(Uri.parse('https://github.com/share121/id-card'));
             },
             child: const Text('Github'),
           ),
