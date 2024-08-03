@@ -175,6 +175,13 @@ class MyHomePage extends GetView<Controller> {
                     },
                   );
                 }),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Clipboard.setData(
+                      ClipboardData(text: controller.list.join('\n')));
+                },
+                child: const Text('复制全部'),
               )
             ],
           ),
