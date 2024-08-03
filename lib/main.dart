@@ -84,8 +84,15 @@ class MyHomePage extends GetView<Controller> {
             isDesktop ? const DragToMoveArea(child: SizedBox.expand()) : null,
         actions: [
           TextButton(
-            onPressed: () {
-              launchUrl(Uri.parse('https://github.com/share121/id-card'));
+            onPressed: () async {
+              await Clipboard.setData(const ClipboardData(
+                  text: 'https://github.com/share121/id-card'));
+              Get.rawSnackbar(
+                title: '复制成功',
+                message: 'https://github.com/share121/id-card',
+                animationDuration: 500.ms,
+              );
+              await launchUrl(Uri.parse('https://github.com/share121/id-card'));
             },
             child: const Text('Github'),
           ),
