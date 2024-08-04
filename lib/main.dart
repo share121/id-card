@@ -11,6 +11,7 @@ import 'data.dart';
 import 'widget/window_buttons.dart';
 
 final isDesktop = !kIsWeb && GetPlatform.isDesktop;
+final isMobile = !kIsWeb && GetPlatform.isMobile;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,10 @@ Future<void> main() async {
       await windowManager.show();
       await windowManager.focus();
     });
+  }
+  if (isMobile) {
+    await SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
   SystemTheme.fallbackColor = Colors.blue;
   await SystemTheme.accentColor.load();
