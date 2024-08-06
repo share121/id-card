@@ -123,7 +123,7 @@ class MyHomePage extends GetView<Controller> {
                   maxLength: 18,
                   decoration: const InputDecoration(
                     labelText: '身份证号',
-                    hintText: '用 - 来代表你不知道的部分，不用输入校验码',
+                    hintText: '用 - 来代表你不知道的部分',
                   ),
                   validator: (value) {
                     if (value?.isEmpty ?? true) {
